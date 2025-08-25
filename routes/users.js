@@ -4,7 +4,7 @@ const userRouter = express.Router();
 const bcrypt = require("bcrypt");
 const { z } = require("zod");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
+const userMiddleware = require("../middlewares/user");
 
 const JWT_SECRET = process.env.JWT_USER_SECRET;
 
@@ -90,7 +90,7 @@ userRouter.post("/signin", async function (req, res){
     }
 })
 
-userRouter.get("/purchases", function (req, res){
+userRouter.get("/purchases", userMiddleware, function (req, res){
     
 })
 
