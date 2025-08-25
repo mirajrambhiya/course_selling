@@ -14,7 +14,7 @@ app.use("/user", userRouter);
 app.use("/course", courseRouter);
 app.use("/admin", adminRouter);
 
-async function main(){
+async function main() {
     await mongoose.connect(MONGO_URL);
     app.listen(3000, () => console.log("Listening on port 3000"));
 }
